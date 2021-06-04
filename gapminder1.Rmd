@@ -1,0 +1,20 @@
+---
+title: "gapminder1"
+author: "Indali Bora"
+date: "6/4/2021"
+output: word_document
+---
+
+```{r}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(gapminder)
+gapminder %>%
+  mutate (logpop = log2(pop)) %>%
+  select (country, continent, year, lifeExp, pop, gdpPercap, logpop) %>%
+  filter (continent == "Americas" & year == 1997) %>%
+  arrange(desc(lifeExp)) -> gapminder1
+gapminder1
+
+```
